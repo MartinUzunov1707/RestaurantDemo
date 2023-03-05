@@ -36,6 +36,17 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblImage = new System.Windows.Forms.Label();
             this.btnUpload = new System.Windows.Forms.Button();
+            this.lblVegetarian = new System.Windows.Forms.Label();
+            this.lblVegan = new System.Windows.Forms.Label();
+            this.lblGlutenFree = new System.Windows.Forms.Label();
+            this.lblKosher = new System.Windows.Forms.Label();
+            this.chkIsVegetarian = new System.Windows.Forms.CheckBox();
+            this.chkIsVegan = new System.Windows.Forms.CheckBox();
+            this.chkIsGlutenFree = new System.Windows.Forms.CheckBox();
+            this.chkIsKosher = new System.Windows.Forms.CheckBox();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -104,11 +115,121 @@
             this.btnUpload.Text = "Upload Image";
             this.btnUpload.UseVisualStyleBackColor = true;
             // 
+            // lblVegetarian
+            // 
+            this.lblVegetarian.AutoSize = true;
+            this.lblVegetarian.Location = new System.Drawing.Point(14, 263);
+            this.lblVegetarian.Name = "lblVegetarian";
+            this.lblVegetarian.Size = new System.Drawing.Size(58, 13);
+            this.lblVegetarian.TabIndex = 9;
+            this.lblVegetarian.Text = "Vegetarian";
+            // 
+            // lblVegan
+            // 
+            this.lblVegan.AutoSize = true;
+            this.lblVegan.Location = new System.Drawing.Point(21, 300);
+            this.lblVegan.Name = "lblVegan";
+            this.lblVegan.Size = new System.Drawing.Size(38, 13);
+            this.lblVegan.TabIndex = 10;
+            this.lblVegan.Text = "Vegan";
+            // 
+            // lblGlutenFree
+            // 
+            this.lblGlutenFree.AutoSize = true;
+            this.lblGlutenFree.Location = new System.Drawing.Point(14, 342);
+            this.lblGlutenFree.Name = "lblGlutenFree";
+            this.lblGlutenFree.Size = new System.Drawing.Size(62, 13);
+            this.lblGlutenFree.TabIndex = 11;
+            this.lblGlutenFree.Text = "Gluten Free";
+            // 
+            // lblKosher
+            // 
+            this.lblKosher.AutoSize = true;
+            this.lblKosher.Location = new System.Drawing.Point(23, 378);
+            this.lblKosher.Name = "lblKosher";
+            this.lblKosher.Size = new System.Drawing.Size(40, 13);
+            this.lblKosher.TabIndex = 12;
+            this.lblKosher.Text = "Kosher";
+            // 
+            // chkIsVegetarian
+            // 
+            this.chkIsVegetarian.AutoSize = true;
+            this.chkIsVegetarian.Location = new System.Drawing.Point(112, 263);
+            this.chkIsVegetarian.Name = "chkIsVegetarian";
+            this.chkIsVegetarian.Size = new System.Drawing.Size(15, 14);
+            this.chkIsVegetarian.TabIndex = 13;
+            this.chkIsVegetarian.UseVisualStyleBackColor = true;
+            // 
+            // chkIsVegan
+            // 
+            this.chkIsVegan.AutoSize = true;
+            this.chkIsVegan.Location = new System.Drawing.Point(112, 299);
+            this.chkIsVegan.Name = "chkIsVegan";
+            this.chkIsVegan.Size = new System.Drawing.Size(15, 14);
+            this.chkIsVegan.TabIndex = 14;
+            this.chkIsVegan.UseVisualStyleBackColor = true;
+            // 
+            // chkIsGlutenFree
+            // 
+            this.chkIsGlutenFree.AutoSize = true;
+            this.chkIsGlutenFree.Location = new System.Drawing.Point(112, 342);
+            this.chkIsGlutenFree.Name = "chkIsGlutenFree";
+            this.chkIsGlutenFree.Size = new System.Drawing.Size(15, 14);
+            this.chkIsGlutenFree.TabIndex = 15;
+            this.chkIsGlutenFree.UseVisualStyleBackColor = true;
+            // 
+            // chkIsKosher
+            // 
+            this.chkIsKosher.AutoSize = true;
+            this.chkIsKosher.Location = new System.Drawing.Point(112, 378);
+            this.chkIsKosher.Name = "chkIsKosher";
+            this.chkIsKosher.Size = new System.Drawing.Size(15, 14);
+            this.chkIsKosher.TabIndex = 16;
+            this.chkIsKosher.UseVisualStyleBackColor = true;
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(24, 469);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(129, 41);
+            this.btnInsert.TabIndex = 17;
+            this.btnInsert.Text = "Insert";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(199, 469);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(129, 41);
+            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(378, 469);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(129, 41);
+            this.btnDelete.TabIndex = 19;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 606);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnInsert);
+            this.Controls.Add(this.chkIsKosher);
+            this.Controls.Add(this.chkIsGlutenFree);
+            this.Controls.Add(this.chkIsVegan);
+            this.Controls.Add(this.chkIsVegetarian);
+            this.Controls.Add(this.lblKosher);
+            this.Controls.Add(this.lblGlutenFree);
+            this.Controls.Add(this.lblVegan);
+            this.Controls.Add(this.lblVegetarian);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.lblDescription);
@@ -134,6 +255,17 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblImage;
         private System.Windows.Forms.Button btnUpload;
+        private System.Windows.Forms.Label lblVegetarian;
+        private System.Windows.Forms.Label lblVegan;
+        private System.Windows.Forms.Label lblGlutenFree;
+        private System.Windows.Forms.Label lblKosher;
+        private System.Windows.Forms.CheckBox chkIsVegetarian;
+        private System.Windows.Forms.CheckBox chkIsVegan;
+        private System.Windows.Forms.CheckBox chkIsGlutenFree;
+        private System.Windows.Forms.CheckBox chkIsKosher;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 
