@@ -11,6 +11,7 @@ namespace RestourantDemo
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// LUTERA
         [STAThread]
         static void Main()
         {
