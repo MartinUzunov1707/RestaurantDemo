@@ -9,51 +9,50 @@ namespace Business
 {
     public class RestaurantBusiness
     {
-        private RestaurantContext restaurantContext;
+        private RestaurantContext RestaurantContext;
         public List<Dish> GetAll()
         {
-            using (restaurantContext = new RestaurantContext())
+            using (RestaurantContext = new RestaurantContext())
             {
-                return restaurantContext.Dishes.ToList();
+                return RestaurantContext.Dishes.ToList();
             }
         }
         public  Dish Get(int id)
         {
-            using(restaurantContext = new RestaurantContext())
+            using(RestaurantContext = new RestaurantContext())
             {
-                return restaurantContext.Dishes.Find(id);
+                return RestaurantContext.Dishes.Find(id);
             }
         }
-
         public void Add(Dish dish)
         {
-            using (restaurantContext = new RestaurantContext())
+            using (RestaurantContext = new RestaurantContext())
             {
-                restaurantContext.Dishes.Add(dish);
-                restaurantContext.SaveChanges();
+                RestaurantContext.Dishes.Add(dish);
+                RestaurantContext.SaveChanges();
             }
         }
         public void Update(Dish dish)
         {
-            using (restaurantContext = new RestaurantContext())
+            using (RestaurantContext = new RestaurantContext())
             {
-                Dish item = restaurantContext.Dishes.Find(dish.ID);
+                Dish item = RestaurantContext.Dishes.Find(dish.ID);
                 if (item != null)
                 {
-                    restaurantContext.Entry(item).CurrentValues.SetValues(dish);
-                    restaurantContext.SaveChanges();
+                    RestaurantContext.Entry(item).CurrentValues.SetValues(dish);
+                    RestaurantContext.SaveChanges();
                 }
             }
         }
         public void Delete(int id)
         {
-            using (restaurantContext = new RestaurantContext())
+            using (RestaurantContext = new RestaurantContext())
             {
-                Dish item = restaurantContext.Dishes.Find(id);
+                Dish item = RestaurantContext.Dishes.Find(id);
                 if (item != null)
                 {
-                    restaurantContext.Dishes.Remove(item);
-                    restaurantContext.SaveChanges();
+                    RestaurantContext.Dishes.Remove(item);
+                    RestaurantContext.SaveChanges();
                 }
             }
         }
