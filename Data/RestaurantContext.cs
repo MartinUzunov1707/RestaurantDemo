@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    internal class RestaurantContext : DbContext
+    public class RestaurantContext : DbContext
     {
         public RestaurantContext() : base("name=RestaurantContext") { }
         public DbSet<Dish> Dishes { get; set; }
