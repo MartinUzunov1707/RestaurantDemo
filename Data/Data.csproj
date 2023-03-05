@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RestaurantContext.cs" />
     <Compile Include="Models\Dish.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
