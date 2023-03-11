@@ -9,6 +9,7 @@ namespace Data
 {
     public class RestaurantContext : DbContext
     {
+        //ГЕОРГ
         public RestaurantContext() : base("name=RestaurantContext") { }
         public DbSet<Dish> Dishes { get; set; }
     }

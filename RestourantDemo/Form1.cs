@@ -14,7 +14,8 @@ using Data;
 
 namespace RestourantDemo
 {
-    
+    //ВСЕКИ СИ ПРАВИ ХМЛ ДОКУМЕНТАЦИЯ ЗА СВОЙТЕ МЕТОДИ И КЛАСОВЕ, НУНИТА СЪЩО.
+    //ДЕСИГН ГЕОРГ
     public partial class Form1 : Form
     {
         public RestaurantBusiness rb = new RestaurantBusiness();
@@ -24,7 +25,7 @@ namespace RestourantDemo
         {
             InitializeComponent();
         }
-
+        //МАРТ
         public byte[] ConvertImageToByte(Image img)
         {
             using (MemoryStream ms = new MemoryStream())
@@ -40,7 +41,7 @@ namespace RestourantDemo
                 return Image.FromStream(ms);
             }
         }
-
+        //АЗ
         private void Form1_Load(object sender, EventArgs e)
         {
             UpdateGrid();
@@ -64,6 +65,7 @@ namespace RestourantDemo
             pictureBox1.Image = null;
             
         }
+        //ГЕОРГ
         private Dish GetDish()
         {
             string name = txtName.Text;
@@ -87,6 +89,7 @@ namespace RestourantDemo
             image = null;
             return dish;
         }
+        //МАРТ
         private Dish GetEditedDish()
         {
             string name = txtName.Text;
@@ -112,7 +115,7 @@ namespace RestourantDemo
             image = null;
             return dish;
         }
-
+        //ГЕОРГ
         private void btnInsert_Click(object sender, EventArgs e)
         {
             try
@@ -126,7 +129,7 @@ namespace RestourantDemo
                 MessageBox.Show(ex.Message);
             }
         }
-
+        
         private void btnUpload_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Image files (*.png;*.jpg)|*.png;*.jpg", Multiselect = false })
@@ -139,7 +142,7 @@ namespace RestourantDemo
             } 
 
         }
-
+        //МАРТ
         private void UpdateControls(int id)
         {
             Dish dish = rb.Get(id);
@@ -166,11 +169,12 @@ namespace RestourantDemo
                 btnSaveChanges.Visible = false;
             }
         }
+        
         private void DisableSelect()
         {
             dataGridView1.Enabled = false;
         }
-
+        
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -198,7 +202,7 @@ namespace RestourantDemo
             ToggleSaveUdpate();
             ClearAllControls();
         }
-
+        //АЗ
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)

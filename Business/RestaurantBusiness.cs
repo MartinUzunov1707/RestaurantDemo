@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Business
 {
+    //АЗ
     /// <summary>
     /// Class that contains the business layer of the app.
     /// </summary>
