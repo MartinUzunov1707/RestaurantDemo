@@ -151,8 +151,7 @@ namespace RestourantDemo
             chkIsVegan.Checked = dish.IsVegan;
             chkIsVegetarian.Checked = dish.IsVegetarian;
             chkIsGlutenFree.Checked = dish.IsGlutenFree;
-            chkIsKosher.Checked = dish.IsKosher;
-            
+            chkIsKosher.Checked = dish.IsKosher;           
         }
         private void ToggleSaveUdpate()
         {
