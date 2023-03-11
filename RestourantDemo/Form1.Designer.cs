@@ -48,7 +48,10 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -69,7 +72,7 @@
             // 
             this.txtDescription.Location = new System.Drawing.Point(83, 170);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(113, 20);
+            this.txtDescription.Size = new System.Drawing.Size(293, 20);
             this.txtDescription.TabIndex = 2;
             // 
             // lblName
@@ -208,6 +211,7 @@
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -217,20 +221,42 @@
             this.btnDelete.TabIndex = 19;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(246, 29);
+            this.dataGridView1.Location = new System.Drawing.Point(403, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(284, 403);
+            this.dataGridView1.Size = new System.Drawing.Size(656, 416);
             this.dataGridView1.TabIndex = 20;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(199, 206);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(177, 213);
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSaveChanges
+            // 
+            this.btnSaveChanges.Location = new System.Drawing.Point(199, 469);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(135, 41);
+            this.btnSaveChanges.TabIndex = 22;
+            this.btnSaveChanges.Text = "Save";
+            this.btnSaveChanges.UseVisualStyleBackColor = true;
+            this.btnSaveChanges.Visible = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 606);
+            this.ClientSize = new System.Drawing.Size(1071, 597);
+            this.Controls.Add(this.btnSaveChanges);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -255,6 +281,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,6 +309,8 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnSaveChanges;
     }
 }
 

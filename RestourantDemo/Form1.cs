@@ -19,6 +19,7 @@ namespace RestourantDemo
     {
         public RestaurantBusiness rb = new RestaurantBusiness();
         Image image;
+        private int editId = 0;
         public Form1()
         {
             InitializeComponent();
@@ -60,31 +61,65 @@ namespace RestourantDemo
             chkIsKosher.Checked = false;
             chkIsVegan.Checked = false;
             chkIsVegetarian.Checked = false;
+            pictureBox1.Image = null;
             
+        }
+        private Dish GetDish()
+        {
+            string name = txtName.Text;
+            decimal price = 0;
+            decimal.TryParse(txtPrice.Text, out price);
+            string description = txtDescription.Text;
+            byte[] arr;
+            if (image == null)
+            {
+                throw new ArgumentException("Image field is not valid!");
+            }
+            else
+            {
+                arr = ConvertImageToByte(image);
+            }
+            bool isVegetarian = chkIsVegetarian.Checked;
+            bool isVegan = chkIsVegan.Checked;
+            bool isGluten = chkIsGlutenFree.Checked;
+            bool isKosher = chkIsKosher.Checked;
+            Dish dish = new Dish(name, price, description, arr, isVegetarian, isVegan, isGluten, isKosher);
+            image = null;
+            return dish;
+        }
+        private Dish GetEditedDish()
+        {
+            string name = txtName.Text;
+            decimal price = 0;
+            decimal.TryParse(txtPrice.Text, out price);
+            string description = txtDescription.Text;
+
+            byte[] arr;
+            if (image == null)
+            {
+                throw new ArgumentException("Image field is not valid!");
+            }
+            else
+            {
+                arr = ConvertImageToByte(image);
+            }
+            bool isVegetarian = chkIsVegetarian.Checked;
+            bool isVegan = chkIsVegan.Checked;
+            bool isGluten = chkIsGlutenFree.Checked;
+            bool isKosher = chkIsKosher.Checked;
+            Dish dish = new Dish(name, price, description, arr, isVegetarian, isVegan, isGluten, isKosher);
+            dish.ID = editId;
+            image = null;
+            return dish;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
             try
-            {
-                string name = txtName.Text;
-                decimal price = 0;
-                decimal.TryParse(txtPrice.Text, out price);
-                string description = txtDescription.Text;
-                byte[] arr;
-                if (image == null)
-                {
-                    throw new ArgumentException("Image field is not valid!");
-                }
-                else
-                {
-                    arr = ConvertImageToByte(image);
-                }
-                bool isVegetarian = chkIsVegetarian.Checked;
-                bool isVegan = chkIsVegan.Checked;
-                bool isGluten = chkIsGlutenFree.Checked;
-                bool isKosher = chkIsKosher.Checked;
-                Dish dish = new Dish();
+            {          
+                rb.Add(GetDish());
+                UpdateGrid();
+                ClearAllControls();
             }
             catch(Exception ex)
             {
@@ -99,9 +134,82 @@ namespace RestourantDemo
                 if(ofd.ShowDialog() == DialogResult.OK)
                 {
                     image = Image.FromFile(ofd.FileName);
+                    pictureBox1.Image = Image.FromFile(ofd.FileName);
                 }
             } 
 
+        }
+
+        private void UpdateControls(int id)
+        {
+            Dish dish = rb.Get(id);
+            txtName.Text = dish.DishName;
+            txtPrice.Text = $"{dish.DishPrice:f2}";
+            txtDescription.Text = dish.DishDescription;
+            pictureBox1.Image = ConvertByteArrayToImage(dish.Image);
+            image = ConvertByteArrayToImage(dish.Image);
+            chkIsVegan.Checked = dish.IsVegan;
+            chkIsVegetarian.Checked = dish.IsVegetarian;
+            chkIsGlutenFree.Checked = dish.IsGlutenFree;
+            chkIsKosher.Checked = dish.IsKosher;
+            
+        }
+        private void ToggleSaveUdpate()
+        {
+            if (btnUpdate.Visible)
+            {
+                btnUpdate.Visible = false;
+                btnSaveChanges.Visible = true;
+            }
+            else
+            {
+                btnUpdate.Visible = true;
+                btnSaveChanges.Visible = false;
+            }
+        }
+        private void DisableSelect()
+        {
+            dataGridView1.Enabled = false;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var item = dataGridView1.SelectedRows[0].Cells;
+                int id = int.Parse(item[0].Value.ToString());
+                editId = id;
+                UpdateControls(id);
+                ToggleSaveUdpate();
+                DisableSelect();
+            }
+        }
+        private void ResetSelect()
+        {
+            dataGridView1.ClearSelection();
+            dataGridView1.Enabled = true;
+        }
+
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+            Dish editedDish = GetEditedDish();
+            rb.Update(editedDish);
+            UpdateGrid();
+            ResetSelect();
+            ToggleSaveUdpate();
+            ClearAllControls();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var item = dataGridView1.SelectedRows[0].Cells;
+                int id = int.Parse(item[0].Value.ToString());
+                rb.Delete(id);
+                UpdateGrid();
+                ResetSelect();
+            }
         }
     }
 }

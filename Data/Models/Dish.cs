@@ -12,9 +12,8 @@ namespace Data
     /// </summary>
     public class Dish
     {
-        public Dish(int id, string name, decimal price, string desc, byte[] image, bool isveg, bool isvegan, bool isglutenfree, bool iskosher)
+        public Dish(string name, decimal price, string desc, byte[] image, bool isveg, bool isvegan, bool isglutenfree, bool iskosher)
         {
-            ID = id;
             DishName= name;
             DishPrice= price;
             DishDescription= desc;
@@ -23,6 +22,10 @@ namespace Data
             IsVegan= isvegan;
             IsGlutenFree= isglutenfree;
             IsKosher = iskosher;
+        }
+        public Dish()
+        {
+
         }
         public int ID { get; set; }
         public string DishName { get; set; }
